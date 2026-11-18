@@ -1,0 +1,420 @@
+modules:
+  ibmc_192_168_0_13:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_15:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_17:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_19:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_21:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_23:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_25:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_27:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_29:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_31:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_33:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_35:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_37:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_39:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_41:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_43:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_45:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_47:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_49:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_51:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_53:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_55:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_57:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_59:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_61:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_63:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_81:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_83:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_85:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_87:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_89:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_100:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_102:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_104:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_132:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_134:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_136:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_138:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_140:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_142:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_144:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_154:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_156:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_158:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_160:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_162:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_164:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_189:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_191:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_193:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_195:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_197:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_199:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_201:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_206:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_208:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_210:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_212:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_214:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000
+
+  ibmc_192_168_0_254:
+    user: "Ваш логин"
+    pass: "Ваш пароль"
+    privilege: "admin"
+    driver: "LAN_2_0"
+    timeout: 10000

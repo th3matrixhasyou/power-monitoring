@@ -1,0 +1,181 @@
+{
+  "title": "NLRC Infrastructure Status - Green Zone",
+  "uid": "nlrc-infra-status",
+  "tags": ["nlrc", "prometheus", "green-zone"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "current": { "selected": true, "text": ["All"], "value": ["$__all"] },
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "rack",
+        "options": [],
+        "query": "label_values(probe_success{job=\"icmp_ping_servers\"}, rack)",
+        "refresh": 1,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Inventory (Servers vs PC)",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 0 },
+      "targets": [
+        { "expr": "count(max by (hostname) (up{job=\"ipmi_servers\"})) or vector(0)", "legendFormat": "Servers (iBMC)", "format": "time_series", "instant": true, "refId": "A" },
+        { "expr": "count(max by (hostname) (up{job=\"icmp_ping_servers\"}) unless on(hostname) max by (hostname) (up{job=\"ipmi_servers\"})) or vector(0)", "legendFormat": "PC (No iBMC)", "format": "time_series", "instant": true, "refId": "B" },
+        { "expr": "count(max by (hostname) (up{job=\"ipmi_servers\"}) or max by (hostname) (up{job=\"icmp_ping_servers\"}))", "legendFormat": "Total Devices", "format": "time_series", "instant": true, "refId": "C" },
+        { "expr": "count(max by (hostname) (up{job=\"ipmi_servers\", rack!~\"pc|tower\"}) or max by (hostname) (up{job=\"icmp_ping_servers\", rack!~\"pc|tower\"}))", "legendFormat": "Racked Servers", "format": "time_series", "instant": true, "refId": "D" }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "palette-classic" } },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "Servers (iBMC)" }, "properties": [ { "id": "color", "value": { "fixedColor": "blue", "mode": "fixed" } } ] },
+          { "matcher": { "id": "byName", "options": "PC (No iBMC)" }, "properties": [ { "id": "color", "value": { "fixedColor": "orange", "mode": "fixed" } } ] },
+          { "matcher": { "id": "byName", "options": "Total Devices" }, "properties": [ { "id": "color", "value": { "fixedColor": "purple", "mode": "fixed" } } ] },
+          { "matcher": { "id": "byName", "options": "Racked Servers" }, "properties": [ { "id": "color", "value": { "fixedColor": "cyan", "mode": "fixed" } } ] }
+        ]
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Hosts UP / DOWN",
+      "gridPos": { "h": 4, "w": 3, "x": 4, "y": 0 },
+      "targets": [
+        { "expr": "sum(probe_success{job=\"icmp_ping_servers\"})", "legendFormat": "UP", "format": "time_series", "instant": true, "refId": "UP" },
+        { "expr": "count(probe_success{job=\"icmp_ping_servers\"} == 0) or vector(0)", "legendFormat": "DOWN", "format": "time_series", "instant": true, "refId": "DOWN" }
+      ],
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "value" },
+      "fieldConfig": {
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "UP" }, "properties": [ { "id": "color", "value": { "fixedColor": "green", "mode": "fixed" } } ] },
+          { "matcher": { "id": "byName", "options": "DOWN" }, "properties": [ { "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } } ] }
+        ]
+      }
+    },
+    {
+      "type": "piechart",
+      "title": "OS Availability",
+      "gridPos": { "h": 4, "w": 4, "x": 7, "y": 0 },
+      "targets": [
+        { "expr": "sum(probe_success{job=\"icmp_ping_servers\"})", "legendFormat": "UP", "format": "time_series", "instant": true, "refId": "UP" },
+        { "expr": "count(probe_success{job=\"icmp_ping_servers\"} == 0) or vector(0)", "legendFormat": "DOWN", "format": "time_series", "instant": true, "refId": "DOWN" }
+      ],
+      "options": {
+        "pieType": "donut",
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "legend": { "displayMode": "list", "placement": "right" }
+      },
+      "fieldConfig": {
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "UP" }, "properties": [ { "id": "color", "value": { "fixedColor": "green", "mode": "fixed" } } ] },
+          { "matcher": { "id": "byName", "options": "DOWN" }, "properties": [ { "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } } ] }
+        ]
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Total Power",
+      "gridPos": { "h": 4, "w": 4, "x": 11, "y": 0 },
+      "targets": [
+        {
+          "expr": "sum(max by (hostname) (ipmi_custom_power_watts or ipmi_sensor_value{job=\"ipmi_servers\", unit=\"W\"} or ipmi_dcmi_power_consumption_watts{job=\"ipmi_servers\"}))",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "Total Power",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value"
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "watt", "color": { "mode": "continuous-GrYlRd" } }
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Power by Rack (G-Series)",
+      "gridPos": { "h": 4, "w": 9, "x": 15, "y": 0 },
+      "targets": [
+        {
+          "expr": "sum by (rack) (max by (hostname, rack) (ipmi_custom_power_watts{rack=~\"^g.*\"} or ipmi_sensor_value{job=\"ipmi_servers\", rack=~\"^g.*\", unit=\"W\"} or ipmi_dcmi_power_consumption_watts{job=\"ipmi_servers\", rack=~\"^g.*\"}))",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "Rack {{rack}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "textMode": "value_and_name",
+        "text": { "titleSize": 14, "valueSize": 20 }
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "watt", "color": { "mode": "continuous-GrYlRd" } }
+      }
+    },
+    {
+      "type": "row",
+      "title": "Rack: $rack",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 4 },
+      "collapsed": true,
+      "repeat": "rack",
+      "panels": [
+        {
+          "type": "stat",
+          "title": "Rack Power",
+          "gridPos": { "h": 10, "w": 3, "x": 0, "y": 5 },
+          "targets": [
+            { "expr": "sum(max by (hostname) (ipmi_custom_power_watts{rack=~\"^$rack$\"} or ipmi_sensor_value{job=\"ipmi_servers\", rack=~\"^$rack$\", unit=\"W\"} or ipmi_dcmi_power_consumption_watts{job=\"ipmi_servers\", rack=~\"^$rack$\"}))", "legendFormat": "Power", "format": "time_series", "instant": true, "refId": "A" }
+          ],
+          "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "value" },
+          "fieldConfig": { "defaults": { "unit": "watt", "color": { "mode": "continuous-GrYlRd" } } }
+        },
+        {
+          "type": "table",
+          "title": "Hosts in Rack",
+          "gridPos": { "h": 10, "w": 21, "x": 3, "y": 5 },
+          "targets": [
+            { "expr": "max by (hostname, os_ip, team) (label_replace(probe_success{job=\"icmp_ping_servers\", rack=~\"^$rack$\"}, \"os_ip\", \"$1\", \"instance\", \"(.*)\"))", "format": "table", "instant": true, "refId": "A" },
+            { "expr": "max by (hostname, ibmc_ip) (label_replace(up{job=\"ipmi_servers\", rack=~\"^$rack$\"}, \"ibmc_ip\", \"$1\", \"instance\", \"(.*)\"))", "format": "table", "instant": true, "refId": "B" },
+            { "expr": "max by (hostname) ( ((ipmi_custom_power_watts{rack=~\"^$rack$\"} or ipmi_sensor_value{job=\"ipmi_servers\", rack=~\"^$rack$\", unit=\"W\"} or ipmi_dcmi_power_consumption_watts{job=\"ipmi_servers\", rack=~\"^$rack$\"}) * 0 + 1) or ipmi_up{job=\"ipmi_servers\", rack=~\"^$rack$\"} )", "format": "table", "instant": true, "refId": "C" },
+            { "expr": "max by (hostname) (ipmi_custom_power_watts{rack=~\"^$rack$\"} or ipmi_sensor_value{job=\"ipmi_servers\", rack=~\"^$rack$\", unit=\"W\"} or ipmi_dcmi_power_consumption_watts{job=\"ipmi_servers\", rack=~\"^$rack$\"})", "format": "table", "instant": true, "refId": "D" }
+          ],
+          "transformations": [
+            { "id": "merge", "options": {} },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": { "Time": true, "__name__": true, "job": true, "__param_module": true, "rack": true, "instance": true, "Value #B": true },
+                "indexByName": { "hostname": 0, "team": 1, "os_ip": 2, "Value #A": 3, "ibmc_ip": 4, "Value #C": 5, "Value #D": 6 },
+                "renameByName": { "os_ip": "OS IP", "ibmc_ip": "iBMC IP", "Value #A": "OS (ICMP)", "Value #C": "iBMC", "Value #D": "Power" }
+              }
+            },
+            { "id": "sortBy", "options": { "sort": [ { "field": "hostname" } ] } }
+          ],
+          "fieldConfig": {
+            "defaults": { "custom": { "align": "center" }, "mappings": [] },
+            "overrides": [
+              { "matcher": { "id": "byName", "options": "OS (ICMP)" }, "properties": [ { "id": "mappings", "value": [ { "type": "value", "options": { "0": { "color": "red", "text": "DOWN" }, "1": { "color": "green", "text": "UP" } } }, { "type": "special", "options": { "match": "null", "result": { "color": "red", "text": "NO OS" } } } ] } ] },
+              { "matcher": { "id": "byName", "options": "iBMC" }, "properties": [ { "id": "mappings", "value": [ { "type": "value", "options": { "0": { "color": "red", "text": "DOWN" }, "1": { "color": "green", "text": "UP" } } }, { "type": "special", "options": { "match": "null", "result": { "color": "red", "text": "DOWN" } } } ] } ] },
+              { "matcher": { "id": "byName", "options": "Power" }, "properties": [ { "id": "unit", "value": "watt" }, { "id": "color", "value": { "mode": "continuous-GrYlRd" } }, { "id": "mappings", "value": [ { "type": "special", "options": { "match": "null", "result": { "text": "—" } } } ] } ] }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

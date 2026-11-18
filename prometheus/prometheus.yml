@@ -1,0 +1,430 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+
+scrape_configs:
+  # =========================================================
+  # 1. In-Band (ICMP) - ПРОВЕРКА ДОСТУПНОСТИ ОС ДЛЯ ВСЕХ УСТРОЙСТВ
+  # =========================================================
+  - job_name: 'icmp_ping_servers'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    static_configs:
+      # --- Rack G1 ---
+      - targets: ['192.168.0.24']
+        labels: { hostname: 'g1-2288h05', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.46']
+        labels: { hostname: 'g1-B211100460', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.48']
+        labels: { hostname: 'g1-B191010007', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.50']
+        labels: { hostname: 'g1-B191010005', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.52']
+        labels: { hostname: 'g1-B2012100453', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.54']
+        labels: { hostname: 'g1-083-5', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.56']
+        labels: { hostname: 'g1-080-6', rack: 'g1', team: 'Cloud' }
+
+      # --- Rack G2 ---
+      - targets: ['192.168.0.32']
+        labels: { hostname: 'g2-B19081007', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.34']
+        labels: { hostname: 'g2-B191210013', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.36']
+        labels: { hostname: 'g2-B191210009', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.38']
+        labels: { hostname: 'g2-B190610022', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.40']
+        labels: { hostname: 'g2-B190610021', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.42']
+        labels: { hostname: 'g2-B191210003', rack: 'g2', team: 'Cloud' }
+
+      # --- Rack G3 ---
+      - targets: ['192.168.0.12']
+        labels: { hostname: 'g3-taishan01', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.14']
+        labels: { hostname: 'g3-taishan59', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.16']
+        labels: { hostname: 'g3-taishan41', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.18']
+        labels: { hostname: 'g3-taishan80', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.20']
+        labels: { hostname: 'g3-taishan42', rack: 'g3', team: 'Cloud' }
+
+      # --- Rack G4 ---
+      - targets: ['192.168.0.22']
+        labels: { hostname: 'g4-5288m3_01', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.26']
+        labels: { hostname: 'g4-2288h93', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.58']
+        labels: { hostname: 'g4-dorado6000', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.161']
+        labels: { hostname: 'g4-679', rack: 'g4', team: 'Cloud' }
+
+      # --- Rack G6 ---
+      - targets: ['192.168.0.80']
+        labels: { hostname: 'g6-B190700322', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.82']
+        labels: { hostname: 'g6-B190700323', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.84']
+        labels: { hostname: 'g6-B190700324', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.86']
+        labels: { hostname: 'g6-B190700325', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.163']
+        labels: { hostname: 'g6-680', rack: 'g6', team: 'Cloud' }
+
+      # --- Rack G7 ---
+      - targets: ['192.168.0.88']
+        labels: { hostname: 'g7-2288H5', rack: 'g7', team: 'CBG Software' }
+      - targets: ['192.168.0.99']
+        labels: { hostname: 'g7-S3800', rack: 'g7', team: 'CBG Software' }
+      - targets: ['192.168.0.101']
+        labels: { hostname: 'g7-234', rack: 'g7', team: 'Geometric Algorithm Lab' }
+      - targets: ['192.168.0.159']
+        labels: { hostname: 'g7-678', rack: 'g7', team: 'Cloud' }
+      - targets: ['192.168.0.192']
+        labels: { hostname: 'g7-B180810173', rack: 'g7', team: 'Computing' }
+      - targets: ['192.168.0.194']
+        labels: { hostname: 'g7-388', rack: 'g7', team: 'Computing' }
+      - targets: ['192.168.0.196']
+        labels: { hostname: 'g7-223', rack: 'g7', team: 'Computing' }
+
+      # --- Rack G8 ---
+      - targets: ['192.168.0.207']
+        labels: { hostname: 'g8-B2012100447', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.209']
+        labels: { hostname: 'g8-B2012100442', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.211']
+        labels: { hostname: 'g8-B2012100430', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.213']
+        labels: { hostname: 'g8-M2408028460', rack: 'g8', team: 'Computing' }
+
+      # --- Rack G9 ---
+      - targets: ['192.168.0.153']
+        labels: { hostname: 'g9-2288', rack: 'g9', team: 'Cloud' }
+      - targets: ['192.168.0.155']
+        labels: { hostname: 'g9-367-1', rack: 'g9', team: 'Cloud' }
+      - targets: ['192.168.0.253']
+        labels: { hostname: 'g9-lserver1', rack: 'g9', team: 'Cloud' }
+
+      # --- Rack G10 ---
+      - targets: ['192.168.0.28']
+        labels: { hostname: 'g10-564', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.30']
+        labels: { hostname: 'g10-563', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.44']
+        labels: { hostname: 'g10-TaiShan2280', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.103']
+        labels: { hostname: 'g10-651', rack: 'g10', team: 'Geometric Algorithm Lab' }
+      - targets: ['192.168.0.188']
+        labels: { hostname: 'g10-464', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.190']
+        labels: { hostname: 'g10-237', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.198']
+        labels: { hostname: 'g10-463', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.205']
+        labels: { hostname: 'g10-417', rack: 'g10', team: 'Computing' }
+
+      # --- Rack G11 ---
+      - targets: ['192.168.0.131']
+        labels: { hostname: 'g11-2288', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.133']
+        labels: { hostname: 'g11-2288-2', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.135']
+        labels: { hostname: 'g11-2288-3', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.137']
+        labels: { hostname: 'g11-2288-4', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.139']
+        labels: { hostname: 'g11-2288-5', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.141']
+        labels: { hostname: 'g11-200', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.143']
+        labels: { hostname: 'g11-200-2', rack: 'g11', team: 'Cloud' }
+
+      # --- Rack G12 ---
+      - targets: ['192.168.0.157']
+        labels: { hostname: 'g12-368', rack: 'g12', team: 'Cloud' }
+
+      # --- Tower Servers (С iBMC, но вне стоек) ---
+      - targets: ['192.168.0.60']
+        labels: { hostname: 'pc-501', rack: 'tower', team: 'Cloud' }
+      - targets: ['192.168.0.62']
+        labels: { hostname: 'pc-702', rack: 'tower', team: 'Cloud' }
+      - targets: ['192.168.0.200']
+        labels: { hostname: 'pc-565-PC', rack: 'tower', team: 'Cloud' }
+
+      # --- Workstations / Обычные ПК (БЕЗ iBMC) ---
+      - targets: ['192.168.0.64']
+        labels: { hostname: 'pc-121', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.65']
+        labels: { hostname: 'pc-123', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.66']
+        labels: { hostname: 'pc-122', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.67']
+        labels: { hostname: 'pc-126', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.68']
+        labels: { hostname: 'pc-124', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.90']
+        labels: { hostname: 'B220100262', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.92']
+        labels: { hostname: 'B220100263', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.93']
+        labels: { hostname: 'B220100264', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.94']
+        labels: { hostname: 'B220100265', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.95']
+        labels: { hostname: 'B220100260', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.96']
+        labels: { hostname: 'B190300195', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.97']
+        labels: { hostname: 'B200200260', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.98']
+        labels: { hostname: 'B200200261', rack: 'pc', team: 'CBG Software' }
+      - targets: ['192.168.0.215']
+        labels: { hostname: 'NAS', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.216']
+        labels: { hostname: 'PC-B220300205', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.217']
+        labels: { hostname: 'PC-B220300200', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.218']
+        labels: { hostname: 'PC-B220300199', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.219']
+        labels: { hostname: 'PC-B220300201', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.220']
+        labels: { hostname: 'PC-B220300203', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.221']
+        labels: { hostname: 'PC-B2203100402', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.222']
+        labels: { hostname: 'PC-B2203100398', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.223']
+        labels: { hostname: 'PC-B2203100395', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.224']
+        labels: { hostname: 'PC-B2203100397', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.225']
+        labels: { hostname: 'PC-B2203100399', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.226']
+        labels: { hostname: 'PC-B2203100400', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.227']
+        labels: { hostname: 'PC-B2203100401', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.229']
+        labels: { hostname: 'PC-B211100755', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.230']
+        labels: { hostname: 'PC-B211100754', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.231']
+        labels: { hostname: 'PC-B200401340', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.232']
+        labels: { hostname: 'PC-B200401293', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.233']
+        labels: { hostname: 'PC-B2307100104', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.234']
+        labels: { hostname: 'PC-B2307100115', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.235']
+        labels: { hostname: 'PC-B2307100113', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.236']
+        labels: { hostname: 'PC-B2307100114', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.237']
+        labels: { hostname: 'PC-B2307100112', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.238']
+        labels: { hostname: 'PC-B2307100109', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.239']
+        labels: { hostname: 'PC-B2307100110', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.240']
+        labels: { hostname: 'PC-B2307100107', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.241']
+        labels: { hostname: 'PC-B2307100106', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.242']
+        labels: { hostname: 'PC-B2307100108', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.243']
+        labels: { hostname: 'PC-B2307100111', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.244']
+        labels: { hostname: 'PC-B2307100105', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.245']
+        labels: { hostname: 'PC-B200700739', rack: 'pc', team: 'Cloud' }
+      - targets: ['192.168.0.246']
+        labels: { hostname: 'rtx3090s-10B220300197', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.247']
+        labels: { hostname: 'rtx3090s9-B220300198', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.248']
+        labels: { hostname: 'rtx3090s4-B220300204', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.249']
+        labels: { hostname: 'rtx3090s6-B220300202', rack: 'pc', team: 'Computing' }
+      - targets: ['192.168.0.250']
+        labels: { hostname: 'rtx3090s2-B220300196', rack: 'pc', team: 'Computing' }
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # =========================================================
+  # 2. Out-of-Band (iBMC) - АППАРАТНЫЕ МЕТРИКИ (ТОЛЬКО ДЛЯ СЕРВЕРОВ)
+  # =========================================================
+  - job_name: 'ipmi_servers'
+    metrics_path: /ipmi
+    scrape_interval: 1m
+    scrape_timeout: 30s
+    static_configs:
+      # --- Rack G1 ---
+      - targets: ['192.168.0.25']
+        labels: { __param_module: 'ibmc_192_168_0_25', hostname: 'g1-2288h05', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.47']
+        labels: { __param_module: 'ibmc_192_168_0_47', hostname: 'g1-B211100460', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.49']
+        labels: { __param_module: 'ibmc_192_168_0_49', hostname: 'g1-B191010007', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.51']
+        labels: { __param_module: 'ibmc_192_168_0_51', hostname: 'g1-B191010005', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.53']
+        labels: { __param_module: 'ibmc_192_168_0_53', hostname: 'g1-B2012100453', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.55']
+        labels: { __param_module: 'ibmc_192_168_0_55', hostname: 'g1-083-5', rack: 'g1', team: 'Cloud' }
+      - targets: ['192.168.0.57']
+        labels: { __param_module: 'ibmc_192_168_0_57', hostname: 'g1-080-6', rack: 'g1', team: 'Cloud' }
+
+      # --- Rack G2 ---
+      - targets: ['192.168.0.33']
+        labels: { __param_module: 'ibmc_192_168_0_33', hostname: 'g2-B19081007', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.35']
+        labels: { __param_module: 'ibmc_192_168_0_35', hostname: 'g2-B191210013', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.37']
+        labels: { __param_module: 'ibmc_192_168_0_37', hostname: 'g2-B191210009', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.39']
+        labels: { __param_module: 'ibmc_192_168_0_39', hostname: 'g2-B190610022', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.41']
+        labels: { __param_module: 'ibmc_192_168_0_41', hostname: 'g2-B190610021', rack: 'g2', team: 'Cloud' }
+      - targets: ['192.168.0.43']
+        labels: { __param_module: 'ibmc_192_168_0_43', hostname: 'g2-B191210003', rack: 'g2', team: 'Cloud' }
+
+      # --- Rack G3 ---
+      - targets: ['192.168.0.13']
+        labels: { __param_module: 'ibmc_192_168_0_13', hostname: 'g3-taishan01', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.15']
+        labels: { __param_module: 'ibmc_192_168_0_15', hostname: 'g3-taishan59', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.17']
+        labels: { __param_module: 'ibmc_192_168_0_17', hostname: 'g3-taishan41', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.19']
+        labels: { __param_module: 'ibmc_192_168_0_19', hostname: 'g3-taishan80', rack: 'g3', team: 'Cloud' }
+      - targets: ['192.168.0.21']
+        labels: { __param_module: 'ibmc_192_168_0_21', hostname: 'g3-taishan42', rack: 'g3', team: 'Cloud' }
+
+      # --- Rack G4 ---
+      - targets: ['192.168.0.23']
+        labels: { __param_module: 'ibmc_192_168_0_23', hostname: 'g4-5288m3_01', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.27']
+        labels: { __param_module: 'ibmc_192_168_0_27', hostname: 'g4-2288h93', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.59']
+        labels: { __param_module: 'ibmc_192_168_0_59', hostname: 'g4-dorado6000', rack: 'g4', team: 'Cloud' }
+      - targets: ['192.168.0.162']
+        labels: { __param_module: 'ibmc_192_168_0_162', hostname: 'g4-679', rack: 'g4', team: 'Cloud' }
+
+      # --- Rack G6 ---
+      - targets: ['192.168.0.81']
+        labels: { __param_module: 'ibmc_192_168_0_81', hostname: 'g6-B190700322', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.83']
+        labels: { __param_module: 'ibmc_192_168_0_83', hostname: 'g6-B190700323', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.85']
+        labels: { __param_module: 'ibmc_192_168_0_85', hostname: 'g6-B190700324', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.87']
+        labels: { __param_module: 'ibmc_192_168_0_87', hostname: 'g6-B190700325', rack: 'g6', team: 'CBG Software' }
+      - targets: ['192.168.0.164']
+        labels: { __param_module: 'ibmc_192_168_0_164', hostname: 'g6-680', rack: 'g6', team: 'Cloud' }
+
+      # --- Rack G7 ---
+      - targets: ['192.168.0.89']
+        labels: { __param_module: 'ibmc_192_168_0_89', hostname: 'g7-2288H5', rack: 'g7', team: 'CBG Software' }
+      - targets: ['192.168.0.100']
+        labels: { __param_module: 'ibmc_192_168_0_100', hostname: 'g7-S3800', rack: 'g7', team: 'CBG Software' }
+      - targets: ['192.168.0.102']
+        labels: { __param_module: 'ibmc_192_168_0_102', hostname: 'g7-234', rack: 'g7', team: 'Geometric Algorithm Lab' }
+      - targets: ['192.168.0.160']
+        labels: { __param_module: 'ibmc_192_168_0_160', hostname: 'g7-678', rack: 'g7', team: 'Cloud' }
+      - targets: ['192.168.0.193']
+        labels: { __param_module: 'ibmc_192_168_0_193', hostname: 'g7-B180810173', rack: 'g7', team: 'Computing' }
+      - targets: ['192.168.0.195']
+        labels: { __param_module: 'ibmc_192_168_0_195', hostname: 'g7-388', rack: 'g7', team: 'Computing' }
+      - targets: ['192.168.0.197']
+        labels: { __param_module: 'ibmc_192_168_0_197', hostname: 'g7-223', rack: 'g7', team: 'Computing' }
+
+      # --- Rack G8 ---
+      - targets: ['192.168.0.208']
+        labels: { __param_module: 'ibmc_192_168_0_208', hostname: 'g8-B2012100447', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.210']
+        labels: { __param_module: 'ibmc_192_168_0_210', hostname: 'g8-B2012100442', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.212']
+        labels: { __param_module: 'ibmc_192_168_0_212', hostname: 'g8-B2012100430', rack: 'g8', team: 'Computing' }
+      - targets: ['192.168.0.214']
+        labels: { __param_module: 'ibmc_192_168_0_214', hostname: 'g8-M2408028460', rack: 'g8', team: 'Computing' }
+
+      # --- Rack G9 ---
+      - targets: ['192.168.0.154']
+        labels: { __param_module: 'ibmc_192_168_0_154', hostname: 'g9-2288', rack: 'g9', team: 'Cloud' }
+      - targets: ['192.168.0.156']
+        labels: { __param_module: 'ibmc_192_168_0_156', hostname: 'g9-367-1', rack: 'g9', team: 'Cloud' }
+      - targets: ['192.168.0.254']
+        labels: { __param_module: 'ibmc_192_168_0_254', hostname: 'g9-lserver1', rack: 'g9', team: 'Cloud' }
+
+      # --- Rack G10 ---
+      - targets: ['192.168.0.29']
+        labels: { __param_module: 'ibmc_192_168_0_29', hostname: 'g10-564', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.31']
+        labels: { __param_module: 'ibmc_192_168_0_31', hostname: 'g10-563', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.45']
+        labels: { __param_module: 'ibmc_192_168_0_45', hostname: 'g10-TaiShan2280', rack: 'g10', team: 'Cloud' }
+      - targets: ['192.168.0.104']
+        labels: { __param_module: 'ibmc_192_168_0_104', hostname: 'g10-651', rack: 'g10', team: 'Geometric Algorithm Lab' }
+      - targets: ['192.168.0.189']
+        labels: { __param_module: 'ibmc_192_168_0_189', hostname: 'g10-464', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.191']
+        labels: { __param_module: 'ibmc_192_168_0_191', hostname: 'g10-237', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.199']
+        labels: { __param_module: 'ibmc_192_168_0_199', hostname: 'g10-463', rack: 'g10', team: 'Computing' }
+      - targets: ['192.168.0.206']
+        labels: { __param_module: 'ibmc_192_168_0_206', hostname: 'g10-417', rack: 'g10', team: 'Computing' }
+
+      # --- Rack G11 ---
+      - targets: ['192.168.0.132']
+        labels: { __param_module: 'ibmc_192_168_0_132', hostname: 'g11-2288', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.134']
+        labels: { __param_module: 'ibmc_192_168_0_134', hostname: 'g11-2288-2', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.136']
+        labels: { __param_module: 'ibmc_192_168_0_136', hostname: 'g11-2288-3', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.138']
+        labels: { __param_module: 'ibmc_192_168_0_138', hostname: 'g11-2288-4', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.140']
+        labels: { __param_module: 'ibmc_192_168_0_140', hostname: 'g11-2288-5', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.142']
+        labels: { __param_module: 'ibmc_192_168_0_142', hostname: 'g11-200', rack: 'g11', team: 'Cloud' }
+      - targets: ['192.168.0.144']
+        labels: { __param_module: 'ibmc_192_168_0_144', hostname: 'g11-200-2', rack: 'g11', team: 'Cloud' }
+
+      # --- Rack G12 ---
+      - targets: ['192.168.0.158']
+        labels: { __param_module: 'ibmc_192_168_0_158', hostname: 'g12-368', rack: 'g12', team: 'Cloud' }
+
+      # --- Tower Servers ---
+      - targets: ['192.168.0.61']
+        labels: { __param_module: 'ibmc_192_168_0_61', hostname: 'pc-501', rack: 'tower', team: 'Cloud' }
+      - targets: ['192.168.0.63']
+        labels: { __param_module: 'ibmc_192_168_0_63', hostname: 'pc-702', rack: 'tower', team: 'Cloud' }
+      - targets: ['192.168.0.201']
+        labels: { __param_module: 'ibmc_192_168_0_201', hostname: 'pc-565-PC', rack: 'tower', team: 'Cloud' }
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: ipmi-exporter:9290
+
+# =========================================================
+# 3. Custom Metrics (Textfile Collector)
+# =========================================================
+  - job_name: 'node_textfile'
+    scrape_interval: 30s
+    static_configs:
+      - targets: ['node-exporter:9100']

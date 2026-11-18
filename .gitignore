@@ -1,0 +1,11 @@
+# Игнорируем файл с реальными паролями
+ipmi/ipmi.yml
+ipmi/ipmi.yml
+# Временные файлы и бэкапы
+*.tmp*
+*.bak
+*~
+
+# Сгенерированные метрики
+textfile_data/*.prom
+textfile_data/*.prom.*
